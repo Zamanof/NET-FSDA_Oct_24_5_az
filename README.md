@@ -288,3 +288,67 @@ int[] numbers = { 1, 2, 3 };
 C# tip sistemi güclü və təhlükəsizdir. Bütün tiplər `object`-dən törəyir və onlar stack və heap-də fərqli şəkildə idarə olunur. `Top-Level Statements` isə proqram yazmağı daha da sadələşdirir.
 
 ---
+
+# C# Tip Sistemində `object` və Tip Növlərinin Müqayisəsi
+
+C# dilində **bütün tiplər** `object` tipindən törəyir. Bu, .NET-in **Common Type System (CTS)** modelinə əsaslanır.
+
+Aşağıda **Value Type** və **Reference Type** tiplərinin fərqləri izah olunub.
+
+---
+
+## 🔹 Ümumi Qeyd
+
+> ✔️ C#-da istər `int`, `float`, `bool`, istərsə də `string`, `class`, `array` kimi tiplər hamısı `System.Object` tipindən törəyir.
+
+---
+
+## 🟦 Value Type – Qiymət Tipi
+
+- `struct` olaraq təyin olunur  
+- **Stack** yaddaşında yaradılır (FILO – First In, Last Out)  
+- **Müqayisə** dəyərlə aparılır (`==` ilə müqayisə eyni dəyərdirsə doğrudur)  
+- **Kopyalama** zamanı dəyər surəti çıxarılır  
+- `new` açarı olmadan da yaradılıb istifadə oluna bilər  
+- Təmizlənməsi: scope bitdikdə **avtomatik yaddaşdan silinir**
+
+---
+
+## 🟪 Reference Type – İstinad Tipi
+
+- `class` olaraq təyin olunur  
+- **Heap** yaddaşında yaradılır  
+- **Müqayisə** referens (istinad) üzərindən aparılır (obyektin ünvanı)  
+- **Kopyalama** zamanı istinad ötürülür  
+- `new` açarı ilə yaradılır  
+- Təmizlənməsi: **Garbage Collector** tərəfindən avtomatik silinir
+
+---
+
+## 📊 Müqayisə Cədvəli
+
+| Xüsusiyyət         | Value Type                        | Reference Type                      |
+|--------------------|-----------------------------------|-------------------------------------|
+| Təyinat            | `struct`                          | `class`                             |
+| Yaddaş yeri        | Stack                              | Heap                                |
+| Müqayisə üsulu     | By value (dəyərlə)                 | By reference (istinadla)            |
+| Kopyalama üsulu    | Dəyər surəti                       | İstinad ötürülür                    |
+| Yaradılma üsulu    | `new` olmadan da mümkün            | `new` ilə mütləq yaradılır          |
+| Yaddaşdan silinmə  | Scope bitdikdə avtomatik           | Garbage Collector ilə avtomatik     |
+| Misallar           | `int`, `bool`, `float`, `char`     | `string`, `object`, `class`, `array`|
+
+---
+
+## 💡 Nümunə
+
+```csharp
+// Value Type
+int a = 5;
+int b = a;   // b = 5, yeni nüsxə yaradılır
+
+// Reference Type
+string name1 = "Nadir";
+string name2 = name1; // eyni obyektə istinad edirlər
+```
+
+---

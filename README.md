@@ -179,14 +179,112 @@ var users = db.Users.Where(u => u.IsActive).ToList();
 | Performans      | Orta             | Yüksək                    |
 | Aktiv inkişaf   | Zəif             | Aktiv                     |
 
+# C# Top-Level Statements və Data Type-lar
+
 ---
 
-## Başlamaq üçün
+## 🔹 Top-Level Statements nədir?
 
-```bash
-dotnet new console -n HelloDotNet
-cd HelloDotNet
-dotnet run
+C# 9.0-dan başlayaraq `Main` metodu olmadan birbaşa kod yazmaq mümkündür.
+
+Ən sadə nümunə:
+
+```csharp
+Console.WriteLine("Salam, dünya!");
 ```
 
-> `.NET` ilə proqramlaşdırmaya başlamaq çox asandır — sadəcə `dotnet` komandasından istifadə et!
+Əvvəlki versiyalarda eyni kod belə olardı:
+
+```csharp
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Salam, dünya!");
+    }
+}
+```
+
+Bu xüsusiyyət tədris və skript əsaslı tətbiqlər üçün idealdır.
+
+---
+
+## 🔸 C# Tip Sistemi
+
+C#-da bütün tiplər `object`-dən törəyir.
+
+```csharp
+int number = 5;
+object obj = number; // boxing
+```
+
+---
+
+## 🟦 Value Types (Qiymət Tipləri)
+
+| Tip         | System Tipi        | Ölçü (byte) | Aralık (təqribi)              |
+|-------------|--------------------|-------------|-------------------------------|
+| `bool`      | System.Boolean     | 1           | true / false                  |
+| `char`      | System.Char        | 2           | Unicode (0–65535)             |
+| `byte`      | System.Byte        | 1           | 0 – 255                       |
+| `sbyte`     | System.SByte       | 1           | -128 – 127                    |
+| `short`     | System.Int16       | 2           | -32,768 – 32,767              |
+| `ushort`    | System.UInt16      | 2           | 0 – 65,535                    |
+| `int`       | System.Int32       | 4           | -2,147,483,648 – 2,147,483,647|
+| `uint`      | System.UInt32      | 4           | 0 – 4,294,967,295             |
+| `long`      | System.Int64       | 8           | ±9 x 10^18                    |
+| `ulong`     | System.UInt64      | 8           | 0 – 18,446,744,073,709,551,615|
+| `float`     | System.Single      | 4           | ±1.5 x 10^−45 – ±3.4 x 10^38  |
+| `double`    | System.Double      | 8           | ±5.0 x 10^−324 – ±1.7 x 10^308|
+| `decimal`   | System.Decimal     | 16          | ±1.0 x 10^−28 – ±7.9 x 10^28  |
+
+🧠 Value type-lar `struct` olaraq təyin olunur və **stack** yaddaşda saxlanır.
+
+---
+
+## 🟪 Reference Types (İstinad Tipləri)
+
+| Tip         | System Tipi        | Xüsusiyyətlər                      |
+|-------------|--------------------|------------------------------------|
+| `string`    | System.String      | Unicode simvol sırası, immutable  |
+| `object`    | System.Object      | Bütün tiplərin kökü               |
+| `dynamic`   | System.Object      | Runtime tip yoxlanışı              |
+| `class`, `interface`, `array` və s. | - | Heap-də saxlanır və GC tərəfindən idarə olunur |
+
+📌 Reference type-lar `new` açarı ilə yaradılır və **heap** yaddaşda yerləşir.
+
+---
+
+## ✅ Value vs Reference Types
+
+| Xüsusiyyət     | Value Type                   | Reference Type               |
+|----------------|------------------------------|------------------------------|
+| Yaradılma      | `struct`                     | `class`                      |
+| Yaddaş         | Stack                        | Heap                         |
+| Nümunə         | `int`, `bool`, `double`      | `string`, `object`, `array`  |
+| Copy davranışı | Dəyər kopyalanır             | İstinad (referans) kopyalanır|
+| Silinmə        | Scope bitdikdə silinir       | Garbage Collector tərəfindən |
+
+---
+
+## 💡 Nümunələr
+
+```csharp
+// Value types
+int age = 30;
+float pi = 3.14f;
+bool isActive = true;
+
+// Reference types
+string name = "Nadir";
+object anything = 123;
+int[] numbers = { 1, 2, 3 };
+```
+
+---
+
+## 📌 Nəticə
+
+C# tip sistemi güclü və təhlükəsizdir. Bütün tiplər `object`-dən törəyir və onlar stack və heap-də fərqli şəkildə idarə olunur. `Top-Level Statements` isə proqram yazmağı daha da sadələşdirir.
+
+---

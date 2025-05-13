@@ -352,3 +352,153 @@ string name2 = name1; // eyni obyektə istinad edirlər
 ```
 
 ---
+
+
+# Dərs 2
+
+
+- Dəyişənlər və adlandırma qaydaları
+- `Console` class-ı və metodları
+- Typecasting (Tip çevrilməsi)
+- Array-lar (birölçülü, çoxölçülü, jagged)
+- Range və Index ifadələri
+- `switch` operatoru və `enum` tipi
+
+---
+
+## 🧾 Dəyişənlər və Adlandırma Qaydaları
+
+C# dilində dəyişənlər tipə əsaslanır və aşağıdakı prinsiplərə əsasən adlandırılır:
+
+- Camel Case: `myVariable`, `totalSum`
+- Ad aydın və mənalı olmalıdır.
+- `@` simvolu ilə C# açar sözləri dəyişən kimi istifadə oluna bilər: `int @class = 5;`
+
+**Misal:**
+```csharp
+string name = "Nadir";
+int age = 30;
+var surname = "Zamanov"; // `var` tip avtomatik təyin edilir
+```
+
+---
+
+## 🖥️ `Console` Class-ı və Əsas Metodlar
+
+| Metod | Təyinatı |
+|-------|----------|
+| `Write`, `WriteLine` | Mətni ekrana yazır |
+| `Read`, `ReadLine`, `ReadKey` | İstifadəçidən məlumat oxuyur |
+| `Clear()` | Konsolu təmizləyir |
+| `Beep()` | Səs çıxarır |
+| `ForegroundColor`, `BackgroundColor` | Mətnin rəngini dəyişir |
+
+**Misal:**
+```csharp
+Console.WriteLine("Adınızı daxil edin:");
+string ad = Console.ReadLine();
+Console.ForegroundColor = ConsoleColor.Green;
+Console.WriteLine($"Salam, {ad}!");
+```
+
+---
+
+## 🔄 Typecasting – Tip çevrilməsi
+
+### İki növ var:
+
+- **Implicit (açıq olmayan)** – məlumat itkisi yoxdursa avtomatik çevrilmə
+- **Explicit (açıq)** – əl ilə çevrilmə, məlumat itkisi ola bilər
+
+**Misal:**
+```csharp
+int a = 100;
+double b = a; // implicit
+
+double x = 45.67;
+int y = (int)x; // explicit
+
+int num = 5;
+string s = num.ToString(); // Tipi string-ə çevirmək
+```
+
+> C#-da `bool` tipinə digər tiplərdən birbaşa çevrilmə icazəli deyil.
+
+---
+
+## 🧮 Array-lar
+
+### Birölçülü Array:
+```csharp
+int[] arr = {1, 2, 3, 4};
+```
+
+### Çoxölçülü Array (2D):
+```csharp
+int[,] matrix = {
+    {1, 2},
+    {3, 4}
+};
+```
+
+### Jagged Array (array of arrays):
+```csharp
+int[][] jagged = new int[2][];
+jagged[0] = new int[] {1, 2};
+jagged[1] = new int[] {3, 4, 5};
+```
+
+### Faydalı metodlar:
+- `Length` – elementlərin ümumi sayı
+- `Rank` – ölçülərin sayı (1D: 1, 2D: 2)
+
+---
+
+## 📐 Range və Index ifadələri (C# 8.0+)
+
+| Sintaksis | Açıqlama |
+|-----------|----------|
+| `arr[2..5]` | 2-ci indeksdən 4-cü indeksə qədər |
+| `arr[^1]` | Sonuncu element |
+| `arr[..3]` | Başdan 3 element |
+| `arr[3..]` | 3-dən sona qədər |
+
+**Misal:**
+```csharp
+int[] nums = {1,2,3,4,5,6};
+int[] sliced = nums[2..^1];
+Console.WriteLine(nums[^1]); // 6
+```
+
+---
+
+## 🔀 `switch` Operatoru və `enum`
+
+### `switch`-də istifadə olunan əsas qaydalar:
+
+- `case`-lər unikal olmalıdır
+- `break` və ya `return` ilə hər blok bitirilməlidir
+- `default` istəyə bağlıdır
+- `goto case` digər halda təkrar yönləndirmə edir
+
+**Misal:**
+```csharp
+enum Days { Monday = 1, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday }
+
+int.TryParse(Console.ReadLine(), out int d);
+switch ((Days)d)
+{
+    case Days.Monday:
+        Console.WriteLine("Bazar ertəsi");
+        break;
+    case Days.Sunday:
+        Console.WriteLine("Bazar");
+        break;
+    default:
+        Console.WriteLine("Yanlış dəyər");
+        break;
+}
+```
+
+---
+

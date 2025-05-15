@@ -501,4 +501,145 @@ switch ((Days)d)
 ```
 
 ---
+#Dərs 4
 
+
+## 📦 Struct
+
+### Xüsusiyyətləri:
+- `struct` - value type-dir (dəyər tipidir), yəni Stack üzərində yerləşir.
+- Struct-lar `class` kimi öz field, property və metodlarına sahib ola bilər.
+- Struct-lar miras ala bilməz (`inheritance`), lakin interfeysləri (`interface`) implement edə bilər.
+- Struct-lar hər zaman **deep copy** əsasında köçürülür (dəyərlər köçürülür, referens deyil).
+
+### Nümunə:
+```csharp
+struct Point
+{
+    public int x;
+    public int y;
+    public int[] arr;
+
+    public Point(int x, int y)
+    {
+        this.x = x;
+        this.y = y;
+        this.arr = new int[] { 25, 5 };
+    }
+}
+```
+
+```csharp
+Point p1 = new Point(10, 20);
+Point p2 = p1;
+p1.arr[0] = 999;
+Console.WriteLine(p2.arr[0]); // 999 - amma array reference-dir! DİQQƏT!
+```
+
+💡 Struct-ların daxilində referens tip varsa (məsələn, array), bu zaman "deep copy" tam tətbiq olunmur.
+
+---
+
+## 🧵 String
+
+### Xüsusiyyətləri:
+- `string` C#-də `System.String` tipinə aiddir və immutable-dir (dəyişməzdir).
+- Bütün dəyişikliklər yeni obyekt yaradır.
+- .NET `intern pool` istifadə edir - eyni string literal-lar bir dəfə yadda saxlanılır.
+- Hər dəfə string üzərində dəyişiklik etdikdə yeni obyekt yaradılır və köhnə obyektlər **Garbage Collector** tərəfindən silinməlidir. Bu, yaddaş istifadəsini artırır və performansa təsir edə bilər.
+
+### İstifadə:
+```csharp
+string str1 = "Hello";
+string str2 = new string("Hello".ToCharArray());
+Console.WriteLine(str1 == str2);         // true
+Console.WriteLine(object.ReferenceEquals(str1, str2)); // false
+```
+
+### Faydalı metodlar:
+| Metod | Təsviri |
+|-------|---------|
+| `Length` | Uzunluq |
+| `ToUpper()` / `ToLower()` | Böyük / kiçik hərflərlə çevirir |
+| `IndexOf(char)` | Simvollar arasında axtarış |
+| `Substring(start, length)` | Alt sətrin alınması |
+| `Split(char)` | Ayrıcılara görə bölmək |
+| `Replace(old, new)` | Əvəz etmə |
+| `Trim()` / `TrimStart()` / `TrimEnd()` | Boşluqları təmizləmək |
+| `Contains(string)` | Alt sətri yoxlamaq |
+| `StartsWith()` / `EndsWith()` | Başlama və bitmə yoxlamaları |
+
+### Nümunə:
+```csharp
+string word = "Hello, World!";
+Console.WriteLine(word.ToUpper());         // HELLO, WORLD!
+Console.WriteLine(word.Substring(0, 5));   // Hello
+Console.WriteLine(word.Contains("World")); // true
+```
+
+---
+
+## 🔧 StringBuilder
+
+### Xüsusiyyətləri:
+- `StringBuilder` dəyişə bilən string təqdim edir.
+- Performans baxımından daha effektivdir, xüsusən çox sayda string birləşməsi zamanı.
+- Yaddaşda yalnız bir obyekt saxlanıldığı üçün Garbage Collector-u yükləmir.
+
+### İstifadə:
+```csharp
+using System.Text;
+
+StringBuilder sb = new StringBuilder("Hi");
+sb.Append(" there");
+sb.AppendLine("!");
+Console.WriteLine(sb.ToString());
+```
+
+### Əsas metodlar:
+| Metod | Təsviri |
+|-------|---------|
+| `Append()` | Sonuna əlavə edir |
+| `AppendLine()` | Yeni sətrə əlavə edir |
+| `Insert(index, value)` | Müəyyən indeksə əlavə edir |
+| `Remove(start, length)` | Hissəni silir |
+| `Replace(old, new)` | Əvəz edir |
+| `Clear()` | Təmizləyir |
+
+### Performans müqayisəsi:
+```csharp
+string s = "";
+for (int i = 0; i < 10000; i++)
+{
+    s += i.ToString(); // hər dəfə yeni string yaradılır - zəif performans
+}
+
+StringBuilder sb = new StringBuilder();
+for (int i = 0; i < 10000; i++)
+{
+    sb.Append(i); // effektivdir
+}
+```
+
+---
+
+## 🔍 string və StringBuilder müqayisəsi
+
+| Xüsusiyyət | string | StringBuilder |
+|------------|--------|----------------|
+| Dəyişə bilirmi? | Xeyr (immutable) | Bəli (mutable) |
+| Hər dəyişiklikdə yeni obyekt yaranırmı? | Bəli | Xeyr |
+| Performans (çoxlu birləşmə zamanı) | Zəif | Yüksək |
+| Garbage Collector yüklənməsi | Artır | Azdır |
+| Kod yazmaq rahatlığı | Sadə | Bir qədər daha uzun |
+
+---
+
+## ✅ Nəticə
+| Tip | Növ | Yerləşmə | Dəyişə bilirmi? | Performans |
+|-----|-----|----------|-----------------|------------|
+| Struct | Value Type | Stack | Bəli | Yüngül obyektlər üçün ideal |
+| string | Reference Type | Heap | Xeyr (immutable) | Kiçik əməliyyatlar üçün normal |
+| StringBuilder | Reference Type | Heap | Bəli | Birləşmələr üçün daha sürətli |
+
+---

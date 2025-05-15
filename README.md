@@ -497,7 +497,6 @@ string name2 = name1; // eyni obyektə istinad edirlər
 
 ---
 
-</details>
 
 <details>
 <summary>🧾 Dəyişənlər və Adlandırma Qaydaları</summary>

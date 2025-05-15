@@ -1,7 +1,7 @@
 <details>
 <summary>Dərs 1</summary>
 
-</details>
+
 
 <details>
 <summary>.NET Arxitekturası və Komponentləri</summary>
@@ -481,8 +481,6 @@ string name2 = name1; // eyni obyektə istinad edirlər
 
 
 </details>
-
-<details>
 <summary>Dərs 2</summary>
 
 

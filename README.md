@@ -657,7 +657,8 @@ switch ((Days)d)
 </details>
 ---
 <details>
-#Dərs 3
+ ---   
+<summary>Dərs 1</summary>
 
 
 

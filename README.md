@@ -658,11 +658,11 @@ switch ((Days)d)
 ---
 <details>
  ---   
-<summary>Dərs 1</summary>
+<summary>Dərs 3</summary>
 
 
 
-
+<details>
 <summary>📦 Struct</summary>
 
 

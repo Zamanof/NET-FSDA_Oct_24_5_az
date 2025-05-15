@@ -481,6 +481,8 @@ string name2 = name1; // eyni obyektə istinad edirlər
 
 
 </details>
+</details>
+---
 <details>
 <summary>Dərs 2</summary>
 
@@ -652,6 +654,7 @@ switch ((Days)d)
         break;
 }
 ```
+</details>
 </details>
 ---
 <details>

@@ -481,6 +481,7 @@ string name2 = name1; // eyni obyektə istinad edirlər
 
 
 </details>
+<details>
 <summary>Dərs 2</summary>
 
 
@@ -651,14 +652,14 @@ switch ((Days)d)
         break;
 }
 ```
-
----
-#Dərs 4
-
-
 </details>
-
+---
 <details>
+#Dərs 3
+
+
+
+
 <summary>📦 Struct</summary>
 
 
@@ -815,4 +816,5 @@ for (int i = 0; i < 10000; i++)
 | StringBuilder | Reference Type | Heap | Bəli | Birləşmələr üçün daha sürətli |
 
 ---
+</details>
 </details>

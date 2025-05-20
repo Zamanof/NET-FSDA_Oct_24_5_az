@@ -51,6 +51,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NET 05", "NET 05", "{6997E1
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NET 05. Tuple, deconstruct", "NET 05. Tuple, deconstruct\NET 05. Tuple, deconstruct.csproj", "{B3096A19-9BE4-4F17-ABF8-CB51A6BE4687}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NET 05. Operator overloading", "NET 05. Operator overloading\NET 05. Operator overloading.csproj", "{0DA88A38-92C5-45F8-A3EC-74695CDCA866}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -133,6 +135,10 @@ Global
 		{B3096A19-9BE4-4F17-ABF8-CB51A6BE4687}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3096A19-9BE4-4F17-ABF8-CB51A6BE4687}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3096A19-9BE4-4F17-ABF8-CB51A6BE4687}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DA88A38-92C5-45F8-A3EC-74695CDCA866}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DA88A38-92C5-45F8-A3EC-74695CDCA866}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DA88A38-92C5-45F8-A3EC-74695CDCA866}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DA88A38-92C5-45F8-A3EC-74695CDCA866}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -157,6 +163,7 @@ Global
 		{F7A4CBAA-3094-4402-9C27-C8609ACE8EE8} = {B54AE451-B5C6-4C00-945C-27D987CA8CC0}
 		{7B3B549D-C98F-4DF9-BA00-7703598D2542} = {6997E116-D396-4E08-9077-475D43DF2D09}
 		{B3096A19-9BE4-4F17-ABF8-CB51A6BE4687} = {6997E116-D396-4E08-9077-475D43DF2D09}
+		{0DA88A38-92C5-45F8-A3EC-74695CDCA866} = {6997E116-D396-4E08-9077-475D43DF2D09}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {916051F0-DB3A-487D-B0F7-4E378024D7BE}

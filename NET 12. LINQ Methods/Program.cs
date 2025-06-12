@@ -342,7 +342,6 @@ studs2.ForEach(Console.WriteLine);
 
 #endregion
 
-
 #region All, Any
 //var check = students.All(s => s.Age > 35);
 //Console.WriteLine(check);

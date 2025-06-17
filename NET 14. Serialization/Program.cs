@@ -80,15 +80,15 @@ List<Book> books = new List<Book>()
 
 
 
-//using var file = new FileStream("books.json", FileMode.OpenOrCreate);
+using var file = new FileStream("books.json", FileMode.OpenOrCreate);
 
 JsonSerializerOptions options = new JsonSerializerOptions();
 options.WriteIndented = true;
 
-var json = JsonSerializer.Serialize(books, options);
-Console.WriteLine(json);
+//var json = JsonSerializer.Serialize(books, options);
+//Console.WriteLine(json);
 
-//JsonSerializer.Serialize(file, books, options);
+JsonSerializer.Serialize(file, books, options);
 
 
 //using var file = new FileStream("books.json", FileMode.Open);

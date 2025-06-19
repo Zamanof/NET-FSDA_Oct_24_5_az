@@ -14,4 +14,16 @@
         must be able to use objects of derived classes without knowing it
     - Baza tipin istifade etdiyi funksionalliqlari, alttiplerimiz xeberdar olmasalar da
         bele istifade ede bilmelidir
+
+4. Interface Segregation Principle(ISP) - interface-lerin ayrilmasi prinsipi
+    - Clients should not be forced to depend upon interfaces that they do not use.
+    - Mushteri istifade etmediyi interfaceden asili olmali deyil
+
+5. Dependency Inversion Principle(DIP) - asililiqlarin inversiyasi prinsipi
+    - States to depend upon abstractions, [not] concretes.
+    - Asililiq abstraksiyadan asili olmalidir, Nedense konkret asili olmali deyil.
+
+    - Yuxari seviyyeli modullar ve ashaqi seviyyeli modullar bir birinden 
+        asili olmali deyil. Her ikisi abstraksiyadan asili olmalidir.
+    - Abstraksiya detallardan asili olmali deyil. Detallar abstraksiyadan asili olmalidir.
 */

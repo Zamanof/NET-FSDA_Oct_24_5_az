@@ -7,7 +7,7 @@
 
 2. Open-Closed Principle (OCP) - Achiq/qapali prinsipi
     - Software entities ... should be open for extension, but closed for modification
-    - Proqramda olan "varliqlar" genishlenmeya achiq, deyishilmeye qapali olmalidir
+    - Proqramda olan "varliqlar" genishlenmeye achiq, deyishilmeye qapali olmalidir
 
 3. Liskov Substitution Principle(LSP) - Liskov evezetme prinsipi
     - Functions that use pointers or references to base classes 

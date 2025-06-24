@@ -1,4 +1,4 @@
-﻿// Single Responcibility
+﻿// Single Responsibility
 using System.Text.RegularExpressions;
 
 #region Bad Example
